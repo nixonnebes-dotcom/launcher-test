@@ -1,4 +1,23 @@
 <div class="container">
+
+    <!-- Sidebar lateral angosta -->
+    <div class="side-nav">
+        <div class="side-nav-top">
+            <img class="side-logo" src="assets/images/icon/icon.png">
+        </div>
+
+        <div class="side-nav-bottom">
+            <div class="side-btn add-account-btn" id="add">
+                <div class="icon-account-add"></div>
+            </div>
+            <div class="player-head"></div>
+        </div>
+    </div>
+
+    <!-- Botón de ajustes, arriba a la derecha junto a los controles de ventana -->
+    <div class="settings-btn icon-settings"></div>
+
+    <!-- Estado del servidor, arriba a la izquierda -->
     <div class="status-server">
         <img class="server-status-icon" src="assets/images/icon/icon.png">
         <div class="server-status-infos">
@@ -10,51 +29,31 @@
         </div>
     </div>
 
-    <div class="home-bottom">
-        <div class="new-tab">
-            <div class="titre-tab-new">Actualités</div>
-            <div class="news-list content-scroll"></div>
-        </div>
-        <div class="social-tab">
-            <div class="social-list content-scroll">
-                <div data-url="https://discord.gg/e9q7Yr2cuQ" class="social-block">
-                    <div class="icon-discord icon-social"></div>
-                </div>
-
-                <div data-url="https://github.com/luuxis" class="social-block">
-                    <div class="icon-github icon-social"></div>
-                </div>
-
-                <div data-url="https://www.youtube.com/LuuxisHD" class="social-block">
-                    <div class="icon-youtube icon-social"></div>
-                </div>
+    <!-- Zona de juego / play button abajo a la derecha -->
+    <div class="play-zone">
+        <div class="play-elements">
+            <div class="play-instance">
+                <button class="play-btn">INICIAR</button>
+                <div class="instance-select">☰</div>
+            </div>
+            <div class="info-starting-game">
+                <div class="info-starting-game-text">Connecting...</div>
+                <progress value="0" max="0" class="progress-bar"></progress>
             </div>
         </div>
     </div>
 
-    <div class="sidebar">
-        <div class="player-options">
-            <div class="player-head"></div>
+    <div class="accounts-popup">
+        <div class="accounts-tab">
+            <div class="accounts-tab-title">Cuentas</div>
+            <div class="accounts-list content-scroll"></div>
         </div>
-
-        <div class="play-elements">
-            <div class="play-instance">
-                <button class="play-btn">Jouer</button>
-                <div class="instance-select icon-arrow"></div>
-            </div>
-            <div class="info-starting-game">
-                <div class="info-starting-game-text">Connexion...</div>
-                <progress value="0" max="0" class="progress-bar"></progress>
-            </div>
-        </div>
-
-        <div class="settings-btn icon-settings"></div>
     </div>
 
     <div class="instance-popup">
         <div class="instances-tab">
             <div class="close-popup icon-close"></div>
-            <p>Choisissez votre instance...</p>
+            <p>Instances</p>
             <div class="instances-List"></div>
         </div>
     </div>

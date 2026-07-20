@@ -1,28 +1,36 @@
 <div class="container">
-    <div class="login-home login-tabs">
-        <div class="login-text">Veuillez vous identifier afin de jouer.</div>
+    <div class="login-chooser login-tabs">
+        <button class="cancel cancel-home" style="display: none;">← Cancel</button>
 
-        <div class="login-options">
-            <button class="connect connect-home">Connexion</button>
-            <button class="cancel cancel-home"  style="display: none;">annuler</button>
-        </div>
-    </div>
+        <div class="login-title">LOG IN</div>
 
-    <div class="login-offline login-tabs">
-        <div class="login-text">Veuillez entrer votre pseudo</div>
+        <div class="login-methods">
+            <button class="method-btn method-microsoft">
+                <div class="method-icon icon-ms-logo">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <span class="method-label">Microsoft</span>
+            </button>
 
-        <div class="input-login">
-            <input type="text" class="email email-offline" placeholder="Pseudo" />
-        </div>
+            <div class="method-offline-wrap">
+                <button class="method-btn method-offline">
+                    <div class="method-icon icon-person-logo"></div>
+                    <span class="method-label">Offline / Crack</span>
+                </button>
 
-        <div class="login-options">
-            <button class="connect connect-offline">Connexion</button>
-            <button class="cancel cancel-offline" style="display: none;">annuler</button>
+                <div class="offline-expand">
+                    <input type="text" class="email email-offline" placeholder="Nickname" />
+                    <div class="offline-actions">
+                        <button class="connect connect-offline">LOGIN</button>
+                        <button class="cancel cancel-offline">CANCEL</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="login-AZauth login-tabs">
-        <div class="login-text">Veuillez vous connecter afin de jouer.</div>
+        <div class="login-text">Please log in to play.</div>
 
         <div class="input-login">
             <input type="text" class="email email-AZauth" placeholder="E-mail" />
@@ -30,21 +38,21 @@
         </div>
 
         <div class="login-options">
-            <button class="connect connect-AZauth">Connexion</button>
-            <button class="cancel cancel-AZauth" style="display: none;">annuler</button>
+            <button class="connect connect-AZauth">Login</button>
+            <button class="cancel cancel-AZauth" style="display: none;">Cancel</button>
         </div>
     </div>
 
     <div class="login-AZauth-A2F login-tabs">
-        <div class="login-text">Veuillez entrer le code de sécurité.</div>
+        <div class="login-text">Please enter the security code.</div>
 
         <div class="input-login">
             <input type="text" class="A2F A2F-AZauth" placeholder="Code" />
         </div>
 
         <div class="login-options">
-            <button class="connect connect-AZauth-A2F">Valider</button>
-            <button class="cancel cancel-AZauth-A2F">annuler</button>
+            <button class="connect connect-AZauth-A2F">Confirm</button>
+            <button class="cancel cancel-AZauth-A2F">Cancel</button>
         </div>
     </div>
 </div>

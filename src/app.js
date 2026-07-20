@@ -3,7 +3,7 @@
  * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
  */
 
-const { app, ipcMain, nativeTheme } = require('electron');
+const { app, ipcMain, nativeTheme, shell } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
 
@@ -29,7 +29,6 @@ Store.initRenderer();
 
 if (!app.requestSingleInstanceLock()) app.quit();
 else app.whenReady().then(() => {
-    if (dev) return MainWindow.createWindow()
     UpdateWindow.createWindow()
 });
 
@@ -71,6 +70,10 @@ ipcMain.handle('is-dark-theme', (_, theme) => {
     if (theme === 'dark') return true
     if (theme === 'light') return false
     return nativeTheme.shouldUseDarkColors;
+})
+
+ipcMain.handle('open-folder', (_, folderPath) => {
+    return shell.openPath(folderPath);
 })
 
 app.on('window-all-closed', () => app.quit());

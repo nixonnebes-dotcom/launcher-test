@@ -6,27 +6,234 @@
 }
 
 .login-tabs {
-    position: absolute;
-    padding: 15px;
-    background: var(--background);
+    position: relative;
+    padding: 2rem 2.5rem;
+    background: transparent;
     border-radius: 15px;
     text-align: center;
-    min-width: 40%;
+    min-width: 320px;
 }
 
-.login-home,
-.login-offline,
+.login-chooser,
 .login-AZauth,
 .login-AZauth-A2F {
     display: none;
+    background: var(--background);
 }
+
+.login-chooser {
+    background: transparent;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * chooser (Microsoft + Offline)                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.cancel-home {
+    position: absolute;
+    top: -2.2rem;
+    left: 0;
+    background: none;
+    border: none;
+    color: var(--color);
+    opacity: 0.6;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.cancel-home:hover {
+    opacity: 1;
+}
+
+.login-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.login-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.method-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: #ffffff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #151515;
+    cursor: pointer;
+    transition: background-color .2s, transform .2s, opacity .2s;
+    box-sizing: border-box;
+}
+
+.method-btn:hover {
+    background: #f0f0f0;
+}
+
+.method-btn:active {
+    transform: scale(0.98);
+}
+
+.method-btn.dimmed {
+    background: #d8d8d8;
+    color: #8a8a8a;
+}
+
+.method-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.icon-ms-logo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+}
+
+.icon-ms-logo span:nth-child(1) { background: #f35325; }
+.icon-ms-logo span:nth-child(2) { background: #81bc06; }
+.icon-ms-logo span:nth-child(3) { background: #05a6f0; }
+.icon-ms-logo span:nth-child(4) { background: #ffba08; }
+
+.icon-person-logo {
+    background: #151515;
+    border-radius: 50%;
+    position: relative;
+}
+
+.icon-person-logo:before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.icon-person-logo:after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 7px;
+    border-radius: 7px 7px 0 0;
+    background: #fff;
+}
+
+.method-offline-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.offline-expand {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .3s ease, opacity .3s ease, margin-top .3s ease;
+    margin-top: 0;
+    background: #ffffff;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.offline-expand.open {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 0.6rem;
+    padding: 1rem;
+}
+
+.email-offline {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    border: 2px solid #cfcfcf;
+    background: #fff;
+    color: #151515;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.email-offline:focus {
+    outline: none;
+    border-color: var(--element-color);
+}
+
+.offline-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+}
+
+.offline-actions .connect-offline {
+    flex: 1;
+    background: #3a3a3a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 0;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+}
+
+.offline-actions .cancel-offline {
+    flex: 1;
+    background: #e21212;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 0;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0;
+}
+
+.offline-actions .connect-offline:hover {
+    background: #4a4a4a;
+}
+
+.offline-actions .cancel-offline:hover {
+    background: #ff2c2c;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * AZauth (servidor con panel propio, se mantiene exclusivo)                   *
+ *                                                                             *
+ ******************************************************************************/
 
 .login-text {
     font-size: 1.3rem;
 }
 
-.connect,
-.cancel {
+.login-AZauth .connect,
+.login-AZauth .cancel,
+.login-AZauth-A2F .connect,
+.login-AZauth-A2F .cancel {
     background: none;
     color: var(--color);
     border: solid 4px var(--element-color);
