@@ -8,7 +8,9 @@ const { ipcRenderer } = require('electron');
 export default class popup {
     constructor() {
         this.popup = document.querySelector('.popup');
+        this.popupTab = document.querySelector('.popup-tab');
         this.popupTitle = document.querySelector('.popup-title');
+        this.popupSpinner = document.querySelector('.popup-spinner');
         this.popupContent = document.querySelector('.popup-content');
         this.popupOptions = document.querySelector('.popup-options');
         this.popupButton = document.querySelector('.popup-button');
@@ -16,9 +18,19 @@ export default class popup {
 
     openPopup(info) {
         this.popup.style.display = 'flex';
-        if (info.background == false) this.popup.style.background = 'none';
-        else this.popup.style.background = '#000000b3'
+        if (info.background == false) {
+            this.popup.style.background = 'none';
+            this.popup.style.backdropFilter = 'none';
+        } else {
+            this.popup.style.background = '';
+            this.popup.style.backdropFilter = '';
+        }
         this.popupTitle.innerHTML = info.title;
+
+        let isLoading = !info.options;
+        this.popupSpinner.style.display = isLoading ? 'flex' : 'none';
+        this.popupTab.style.display = isLoading ? 'none' : 'block';
+
         this.popupContent.style.color = info.color ? info.color : '#e21212';
         this.popupContent.innerHTML = info.content;
 
@@ -34,8 +46,10 @@ export default class popup {
 
     closePopup() {
         this.popup.style.display = 'none';
+        this.popupTab.style.display = 'block';
         this.popupTitle.innerHTML = '';
         this.popupContent.innerHTML = '';
         this.popupOptions.style.display = 'none';
+        this.popupSpinner.style.display = 'none';
     }
 }
